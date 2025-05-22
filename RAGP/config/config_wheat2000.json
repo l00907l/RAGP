@@ -1,0 +1,68 @@
+{
+  "dataset": "wheat2000",
+  "enhance": true,
+  "contrastive_loss": true,
+  "retrieval_time": "Embedding",
+  "device": "cuda:4",
+  "data_path": "../example-data/wheat2000/SNP_pca/wheat2000_pc95.pkl",
+  "y_files": [
+    "../example-data/wheat2000/SNP_pca/2000_1_phe.txt",
+    "../example-data/wheat2000/SNP_pca/2000_2_phe.txt",
+    "../example-data/wheat2000/SNP_pca/2000_3_phe.txt",
+    "../example-data/wheat2000/SNP_pca/2000_4_phe.txt",
+    "../example-data/wheat2000/SNP_pca/2000_5_phe.txt",
+    "../example-data/wheat2000/SNP_pca/2000_6_phe.txt"
+  ],
+  "y_files_origin": [
+    "../example-data/wheat2000/SNP_origin/2000_1_phe.txt",
+    "../example-data/wheat2000/SNP_origin/2000_2_phe.txt",
+    "../example-data/wheat2000/SNP_origin/2000_3_phe.txt",
+    "../example-data/wheat2000/SNP_origin/2000_4_phe.txt",
+    "../example-data/wheat2000/SNP_origin/2000_5_phe.txt",
+    "../example-data/wheat2000/SNP_origin/2000_6_phe.txt"
+  ],
+  "model": {
+    "hidden_dim": {
+      "0": 2500,
+      "1": 1900,
+      "2": 2500,
+      "3": 2400,
+      "4": 2500,
+      "5": 2048
+    },
+    "output_dim": 1,
+    "n_blocks": 3,
+    "dropout_rate": 0.5
+  },
+  "training": {
+    "batch_size": 512,
+    "learning_rate": 0.001,
+    "epochs": 50,
+    "earlystop_patience": 30,
+    "task_type": "regression",
+    "gamma": 0.95
+  },
+  "seeds": {
+    "main_seed": 3407,
+    "task_seeds": {
+      "0": 116,
+      "1": 190,
+      "2": 47,
+      "3": 68,
+      "4": 153,
+      "5": 131
+    }
+  },
+  "loss_alpha": {
+    "0": 0.05,
+    "1": 0.05,
+    "2": 0.05,
+    "3": 0.05,
+    "4": 0.05,
+    "5": 0.05
+  },
+  "fusion_alpha": 0.5,
+  "model_path": "./ckpt",
+  "distance": "cosine",
+  "loss": "pearson"
+}

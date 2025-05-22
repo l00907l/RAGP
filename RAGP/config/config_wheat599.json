@@ -1,0 +1,58 @@
+{
+  "dataset": "wheat599",
+  "enhance": true,
+  "contrastive_loss": true,
+  "retrieval_time": "Embedding",
+  "device": "cuda:4",
+  "data_path": "../example-data/wheat599/SNP_pca/wheat599_pc95.pkl",
+  "y_files": [
+    "../example-data/wheat599/SNP_pca/wheat1.Y",
+    "../example-data/wheat599/SNP_pca/wheat2.Y",
+    "../example-data/wheat599/SNP_pca/wheat3.Y",
+    "../example-data/wheat599/SNP_pca/wheat4.Y"
+  ],
+  "y_files_origin": [
+    "../example-data/wheat599/SNP_origin/wheat1.Y",
+    "../example-data/wheat599/SNP_origin/wheat2.Y",
+    "../example-data/wheat599/SNP_origin/wheat3.Y",
+    "../example-data/wheat599/SNP_origin/wheat4.Y"
+  ],
+  "model": {
+    "hidden_dim": {
+      "0": 2500,
+      "1": 3000,
+      "2": 3000,
+      "3": 1500
+    },
+    "output_dim": 1,
+    "n_blocks": 3,
+    "dropout_rate": 0.5
+  },
+  "training": {
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "epochs": 15,
+    "earlystop_patience": 30,
+    "task_type": "regression",
+    "gamma": 0.95
+  },
+  "seeds": {
+    "main_seed": 3407,
+    "task_seeds": {
+      "0": 25,
+      "1": 74,
+      "2": 139,
+      "3": 66
+    }
+  },
+  "loss_alpha": {
+    "0": 0.9,
+    "1": 0.8,
+    "2": 0.5,
+    "3": 0.1
+  },
+  "fusion_alpha": 0.4,
+  "model_path": "./ckpt",
+  "distance": "cosine",
+  "loss": "pearson"
+}

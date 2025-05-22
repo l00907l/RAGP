@@ -1,0 +1,53 @@
+{
+  "dataset": "maize8652",
+  "enhance": true,
+  "contrastive_loss": true,
+  "retrieval_time": "Embedding",
+  "device": "cuda:4",
+  "data_path": "../example-data/maize8652/X.pkl",
+  "y_files": [
+    "../example-data/maize8652/SNP_pca/DTT.csv",
+    "../example-data/maize8652/SNP_pca/PH.csv",
+    "../example-data/maize8652/SNP_pca/EW.csv"
+  ],
+  "y_files_origin": [
+    "../example-data/maize8652/SNP_origin/DTT.csv",
+    "../example-data/maize8652/SNP_origin/PH.csv",
+    "../example-data/maize8652/SNP_origin/EW.csv"
+  ],
+  "model": {
+    "hidden_dim": {
+      "0": 1024,
+      "1": 512,
+      "2": 2048
+    },
+    "output_dim": 1,
+    "n_blocks": 3,
+    "dropout_rate": 0.5
+  },
+  "training": {
+    "batch_size": 1024,
+    "learning_rate": 0.001,
+    "epochs": 35,
+    "earlystop_patience": 30,
+    "task_type": "regression",
+    "gamma": 0.95
+  },
+  "seeds": {
+    "main_seed": 3407,
+    "task_seeds": {
+      "0": 40,
+      "1": 35,
+      "2": 24
+    }
+  },
+  "loss_alpha": {
+    "0": 0.01,
+    "1": 0.01,
+    "2": 0.01
+  },
+  "fusion_alpha": 0.9,
+  "model_path": "./ckpt",
+  "distance": "cosine",
+  "loss": "pearson"
+}
