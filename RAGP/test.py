@@ -11,7 +11,7 @@ import os
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train model with config file.")
-    parser.add_argument("--config", type=str, required=False, default="./config/config_maize8652.json")
+    parser.add_argument("--config", type=str, required=False, default="./config/config_maize599.json")
     args = parser.parse_args()
 
     with open(args.config, 'r', encoding='utf-8') as f:
