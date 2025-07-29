@@ -64,12 +64,6 @@ python RAGP/references.py
 The generated references will be saved in:
 `RAGP/references/`
 
----
-
-## Citation
-
-If you use this work in your research, please cite our paper
-
 
 ---
 
