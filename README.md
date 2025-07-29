@@ -3,7 +3,9 @@
 ## 1. Introduction
 
 This is the code for the paper: **"RAGP: A retrieval-augmented deep learning model for genomic prediction in crop breeding"**. RAGP introduces a retrieval-augmented mechanism to enhance genomic prediction by incorporating references from genetically similar individuals. This method significantly improves performance, especially under small sample sizes and complex population structures.
+
 ![image](framework.png)
+
 ---
 
 ## 2. Dataset
