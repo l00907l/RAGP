@@ -4,20 +4,76 @@
 
 This is the code for the paper: **"RAGP: A retrieval-augmented deep learning model for genomic prediction in crop breeding"**. RAGP introduces a retrieval-augmented mechanism to enhance genomic prediction by incorporating references from genetically similar individuals. This method significantly improves performance, especially under small sample sizes and complex population structures.
 
-![image](framework.png)
+![image](framework.pdf)
 
 ---
 
 ## 2. Dataset
 
 The following datasets are supported:
-- **wheat599**
-- **wheat2000 and maize8652**: Download from Baidu Cloud:  
-  🔗 https://pan.baidu.com/s/1qorIcAyx6tOJSBSjMP8hLA  
-  🔑 Extraction Code: `0720`
 
+* **wheat599**
+* **wheat2000** and **maize8652**: Download from Baidu Cloud:
+  Link: `https://pan.baidu.com/s/1qorIcAyx6tOJSBSjMP8hLA`
+  Extraction Code: `0720`
 
-Please place the datasets in the appropriate folders (e.g., `./data/`) as expected by the configuration files.
+Please place the datasets in the folders expected by the configuration files.
+
+For example, the `maize8652` dataset is organized as:
+
+```text
+example-data/
+└── maize8652/
+    ├── X.pkl
+    └── SNP_pca/
+        ├── DTT.csv
+        ├── PH.csv
+        └── EW.csv
+```
+
+with the corresponding configuration:
+
+```json
+"data_path": "../example-data/maize8652/X.pkl",
+"y_files": [
+  "../example-data/maize8652/SNP_pca/DTT.csv",
+  "../example-data/maize8652/SNP_pca/PH.csv",
+  "../example-data/maize8652/SNP_pca/EW.csv"
+]
+```
+
+To run RAGP on a new dataset, please organize the data in the same way:
+
+* store the genotype feature matrix in a single file, such as `X.pkl`
+* store phenotype files in the same dataset folder or a subfolder
+* ensure that all phenotype files follow the same sample order as the genotype matrix
+
+A typical structure for a new dataset is:
+
+```text
+example-data/
+└── your_dataset/
+    ├── X.pkl
+    └── phenotypes/
+        ├── trait1.csv
+        ├── trait2.csv
+        └── trait3.csv
+```
+
+and the corresponding configuration should be written as:
+
+```json
+{
+  "dataset": "your_dataset",
+  "data_path": "../example-data/your_dataset/X.pkl",
+  "y_files": [
+    "../example-data/your_dataset/phenotypes/trait1.csv",
+    "../example-data/your_dataset/phenotypes/trait2.csv",
+    "../example-data/your_dataset/phenotypes/trait3.csv"
+  ]
+}
+```
+
 
 ---
 
@@ -32,6 +88,7 @@ numpy==1.26.0
 tqdm
 scipy
 scikit-image
+scikit-learn
 pandas
 ```
 
@@ -39,7 +96,7 @@ Recommended Python version: `>=3.7`
 
 ---
 
-## 4. Running the Model
+## 4. Running RAGP
 
 All configuration files are located in the `RAGP/config/` folder.
 
@@ -67,5 +124,12 @@ The generated references will be saved in:
 
 ---
 
+## 6. GBLUP baseline
+
+A runnable example for the GBLUP baseline on **Wheat2000** is provided in this repository. After placing the example data in the expected folder, the script can be run directly.
+
+For a new dataset, replace the genotype and phenotype file paths in the script with your own data files. Please ensure that the genotype matrix and phenotype files are aligned in the same sample order.
+
+---
 
 For questions or issues, feel free to open an issue or contact the authors.
