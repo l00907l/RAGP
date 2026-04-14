@@ -4,12 +4,13 @@
 
 This is the code for the paper: **"RAGP: A retrieval-augmented deep learning model for genomic prediction in crop breeding"**. RAGP introduces a retrieval-augmented mechanism to enhance genomic prediction by incorporating references from genetically similar individuals. This method significantly improves performance, especially under small sample sizes and complex population structures.
 
-![image](framework.pdf)
+![image](framework.png)
 
 ---
 
 ## 2. Dataset
 
+### 2.1 example dataset
 The following datasets are supported:
 
 * **wheat599**
@@ -42,6 +43,7 @@ with the corresponding configuration (paths are written relative to files in `RA
 ]
 ```
 
+### 2.1 new dataset
 To run RAGP on a new dataset, please organize the data in the same way:
 
 * store the genotype feature matrix in a single file, such as `X.pkl`
@@ -60,7 +62,7 @@ example-data/
         └── trait3.csv
 ```
 
-and the corresponding configuration should be written as:
+and the corresponding configuration should be written as (paths are written relative to files in `RAGP/config/`):
 
 ```json
 {
@@ -127,10 +129,12 @@ The generated references will be saved in:
 
 ## 6. Running GBLUP
 
-A runnable example for the GBLUP baseline on Wheat2000 is provided in this repository.
+Runnable example scripts for the GBLUP baseline are provided for the datasets used in this study:
 
 ```bash
+python RAGP/gblup_wheat599.py
 python RAGP/gblup_wheat2000.py
+python RAGP/gblup_maize8652.py
 ```
 
 For a new dataset, replace the genotype and phenotype file paths in the script with your own data files, and update the trait names if needed. Please ensure that the genotype matrix and phenotype files are aligned in the same sample order.
