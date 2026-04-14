@@ -31,7 +31,7 @@ example-data/
         └── EW.csv
 ```
 
-with the corresponding configuration:
+with the corresponding configuration (paths are written relative to files in `RAGP/config/`):
 
 ```json
 "data_path": "../example-data/maize8652/X.pkl",
@@ -106,6 +106,7 @@ To run the model on the `wheat599` dataset, use the following command:
 python RAGP/run.py --config ./config/config_wheat599.json
 ```
 
+To run RAGP on a different dataset, simply prepare the data in the same format, create the corresponding configuration file, and replace the config path in the command.
 The model will train and evaluate, and the resulting model weights for each task will be saved in: `RAGP/ckpt/`
 
 ---
@@ -124,11 +125,15 @@ The generated references will be saved in:
 
 ---
 
-## 6. GBLUP baseline
+## 6. Running GBLUP
 
-A runnable example for the GBLUP baseline on **Wheat2000** is provided in this repository. After placing the example data in the expected folder, the script can be run directly.
+A runnable example for the GBLUP baseline on Wheat2000 is provided in this repository.
 
-For a new dataset, replace the genotype and phenotype file paths in the script with your own data files. Please ensure that the genotype matrix and phenotype files are aligned in the same sample order.
+```bash
+python RAGP/gblup_wheat2000.py
+```
+
+For a new dataset, replace the genotype and phenotype file paths in the script with your own data files, and update the trait names if needed. Please ensure that the genotype matrix and phenotype files are aligned in the same sample order.
 
 ---
 
