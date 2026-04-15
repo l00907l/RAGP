@@ -43,7 +43,7 @@ with the corresponding configuration (paths are written relative to files in `RA
 ]
 ```
 
-### 2.1 new dataset
+### 2.2 new dataset
 To run RAGP on a new dataset, please organize the data in the same way:
 
 * store the genotype feature matrix in a single file, such as `X.pkl`
