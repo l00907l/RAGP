@@ -132,9 +132,9 @@ The generated references will be saved in:
 Runnable example scripts for the GBLUP baseline are provided for the datasets used in this study:
 
 ```bash
-python RAGP/gblup_wheat599.py
-python RAGP/gblup_wheat2000.py
-python RAGP/gblup_maize8652.py
+python gblup_wheat599.py
+python gblup_wheat2000.py
+python gblup_maize8652.py
 ```
 
 For a new dataset, replace the genotype and phenotype file paths in the script with your own data files, and update the trait names if needed. Please ensure that the genotype matrix and phenotype files are aligned in the same sample order.
